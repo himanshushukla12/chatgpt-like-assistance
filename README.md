@@ -2,6 +2,8 @@
 
 The code from Part 2 of the @the_aipill "Design ChatGPT" series: a small ChatGPT-style assistant in five steps.
 
+> **Commented DESIGN?** The full 45-minute ML system design sheet (token math, KV cache, prefill/decode disaggregation, PagedAttention, speculative decoding, model cascade, FSDP → GRPO, guardrails, evals, cost) is in [`design-doc/`](design-doc/).
+
 | Step | File | What it does |
 |---|---|---|
 | 1. Serve | `serve.sh` | Two vLLM servers (OpenAI-compatible): Llama 3.1 8B on :8001, Llama 3.3 70B on :8002 (4 GPUs). PagedAttention is built into vLLM; `--enable-prefix-caching` reuses the KV cache of the shared system prompt. |
